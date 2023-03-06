@@ -1,0 +1,25 @@
+
+High Level these are the steps : 
+
+# create a self signed certificate
+New-SelfSignedCertificate -FriendlyName "Exch Unattended Script" -Subject "Exch Unattended Script" -CertStoreLocation "cert:\CurrentUser\My" -KeySpec KeyExchange 
+
+# Export Certificate
+$cert = Get-ChildItem -Path Cert:\CurrentUser\My\{put certificate thumbprint}
+Export-Certificate -Cert $cert -FilePath $home\Desktop\ExchangeOnlinev2\exchauth.cer
+
+# Create App Registration and grant admin consent
+Grant Exchange.ManageAsApp Right under Office 365 Exchange Online
+
+# Assign Exchange Admin Role to the newly registered App.
+
+# Upload Certificate Public Key to recently created App in Azure.
+
+# Run Command On Prem to find if unattended script works
+Connect-ExchangeOnline -AppId {AppID} -CertificateThumbprint {CertThumbprint} -Organization {TenantFQDN.onmicrosoft.com}
+
+# Sample Script for task scheduler job to export script.
+$session = Connect-ExchangeOnline -CertificateThumbprint {CertThumbprint} -AppId {AppID} -ShowBanner:$false -Organization {TenantFQDN.onmicrosoft.com}
+$rcpt = Get-ExoMailbox -resultsize unlimited | select *
+$rcpt | export-csv $home\Desktop\ExchangeOnlinev2\MB_exported.csv -NTI
+Disconnect-ExchangeOnline -Confirm:$false -InformationAction Ignore -ErrorAction SilentlyContinue
