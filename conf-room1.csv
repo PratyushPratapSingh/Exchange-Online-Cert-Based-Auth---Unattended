@@ -1,0 +1,3 @@
+Name,RoomNumber,SiteCode,PolycomNumber,SidePhoneNumber,HDVC,Capacity,Features,RoomType,UserPrincipalName,office,OrganizationalUnit,PhoneNum,FN,LN,Database,CCTNumber,CreatedBy
+Lotus,16.227,IN33,+91.80.40189353,91.76676442,91.80401894,10,Flat Screen,Conference Room, pratyus-cloud@synopsysqa.onmicrosoft.com,"Bangalore, India, IN33",internal.synopsys.com/Resources/ConfRooms,8787656789,pratyus,cloud,IN01WEMBXA_DB2,1234,Pratyush
+Lili,16.157,IN33,+91.80.40189360,91.98987468,91.80401894,1,Flat Screen,Visitor Room, chilika-cloud@synopsysqa.onmicrosoft.com,"Bangalore, India, IN33",internal.synopsys.com/Resources/ConfRooms,8787656789,chilika,cloud,IN01WEMBXB_DB2,9876,Pratyush
